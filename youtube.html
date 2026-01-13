@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Youtube Clone</title>
+
+    <link rel="preconnect" href="https://fonts.
+    googleapis.com">
+    <link rel="preconnect" href="https://fonts.
+    gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?
+    family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet">   
+
+    <style>
+      .thumbnail-1{
+        width: 100%;
+        height: 168px;
+      }
+
+      .search-bar{
+        display: block;
+        flex: 1;
+        height: 34px;
+        padding-left: 10px;
+        font-size: 16px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: gray;
+        border-radius: 2px;
+        box-shadow: inset 1px 2px 4px 
+        rgba(0, 0, 0, 0.05);
+        width: 0px;
+      } 
+
+      .video-title{ 
+        margin-top: 0%;
+        font-weight: bold;
+        font-family: Roboto,Arial;
+        font-size: 14px;
+        line-height: 19px;
+        margin-bottom: 10px;
+      }
+      
+      .video-author{
+        margin-bottom: 4px;
+        color: rgb(96, 96, 96);
+        font-size: 12px;
+      }
+
+      .video-stats{
+        color: rgb(96, 96, 96);
+        font-size: 12px;
+        margin-top: 4px;
+      }
+
+      .thumbnail-2{
+        display: block;
+        width: 100%;
+        height: 168px;
+      } 
+
+      .channel-picture1{
+        vertical-align: top;
+      }
+
+      .video-info{
+        margin-top: 11px;
+      }
+
+      .video-info-grid{
+        display: grid;
+        grid-template-columns: 50px 1fr;
+      }
+
+      .profile-picture{
+        width: 40px;
+        border-radius: 50px;
+      }
+
+      .channel-picture2{
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        vertical-align: top;
+      }
+
+      .video-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 16px;
+        row-gap: 40px;
+      }
+
+      .header{
+        display: flex;
+        flex-direction: row;
+        height: 55px;
+        justify-content: space-between;
+        z-index: 100;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: rgb(255, 255, 255);
+        border-bottom-width: 1px;
+        border-bottom-color: rgb(228, 228, 228);
+        border-bottom-style: solid;
+      }
+
+      .left-section{
+        align-items: center;
+        display: flex;
+      }
+
+      .hamburger-menu{
+        height: 24px;
+        margin-left: 20px;
+        margin-right: 20px;
+        cursor: pointer;
+
+      }
+
+      .youtube-logo{
+        height: 20px;
+        cursor: pointer;
+      }
+
+      .middle-section{
+        flex: 1;
+        margin-left: 70px;
+        margin-right: 35px;
+        max-width: 800px;
+        display: flex;
+        align-items: center;
+      }
+
+      .search-bar::placeholder{
+        font-family: Arial;
+        font-size: 14px;
+      }
+
+      .search-icon{
+        height: 36px;
+        width: 60px;
+        border-color: gray;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 2px;
+        background-color: lightgrey;
+        cursor: pointer;
+      }
+
+      .voice-search-icon{
+        height: 36px;
+        width: 40px;
+        border-color: gray;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 50%;
+        margin-left: 10px;
+        background-color: lightgray;
+        border: none;
+        cursor: pointer;
+      }
+
+      .right-section{
+        width: 180px;
+        margin-right: 20px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        flex-shrink: 0;
+      }
+
+      .upload-icon{
+        height: 24px;
+        cursor: pointer;
+      }
+
+      .youtube-apps{
+        height: 24px;
+        cursor: pointer;
+      }
+
+      .notification{
+        height: 24px;
+        cursor: pointer;
+      }
+
+      .stealth{
+        height: 32px;
+        border-radius: 16px;
+        cursor: pointer;
+      }
+
+      .Sidebar{
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        top: 55px;
+        background-color: rgb(255, 255, 255);
+        width: 72px;
+        z-index: 200;
+      }
+
+      .thumbnail-row{
+        position: relative;
+        margin-bottom: 8px;
+      }
+
+      .video-time{
+        background-color: rgba(0, 0, 0);
+        color: rgb(255, 255, 255);
+        position: absolute;
+        bottom: 8px;
+        right: 5px;
+        font-size: 12px;
+        font-weight: 500;
+        font-family: Arial;
+        padding: 3px;
+        border-radius: 2px; 
+      }
+
+      .notification-div{
+        position: relative;
+      }
+
+      .notification-number{
+        position: absolute;
+        background-color: rgb(200, 0, 0);
+        color: rgb(255, 255, 255);
+        font-family: Arial;
+        font-weight: 500;
+        top: -2px;
+        right: -5px;
+        font-size: 11px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 5px;
+        padding-right: 5px;
+        border-radius: 10px;
+      }
+
+      .sidebar-link{
+        height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .sidebar-link:hover{
+        background-color: rgb(226, 226, 226);
+      }
+
+      .sidebar-link img{
+        height: 24px;
+      }
+
+      .sidebar-link div{
+        font-family: Arial;
+        font-size: 10px;
+      }
+
+      .search-div{
+        position: relative;
+      }
+
+      .search-text{
+        position: absolute;
+        font-family: Arial;
+        font-size: 12px;
+        background-color: gray;
+        color: white;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-left: 4px;
+        padding-right: 4px;
+        font-weight: bold;
+        border-radius: 2px;
+        bottom: -30px;
+      }
+
+      .search-button{
+        position: relative;
+      }
+    </style>
+  </head>
+  <body style="
+    margin: 0px;
+    padding-top: 80px;
+    padding-left: 96px;
+    margin-bottom: 100px;
+    margin-right: 24px;
+    background-color: rgb(240, 240, 240);
+  ">
+    <div class="header">
+    <div class="left-section">
+      <img class="hamburger-menu" 
+      src="https://raw.githubusercontent.com/SuperSimpleDev/html-css-course/0211caa785f60b0e934348b9991f0ec2133a8a37/2-copy-of-code/lesson-13/icons/hamburger-menu.svg">
+      <img class="youtube-logo"
+      src="https://raw.githubusercontent.com/SuperSimpleDev/html-css-course/0211caa785f60b0e934348b9991f0ec2133a8a37/2-copy-of-code/lesson-13/icons/youtube-logo.svg">
+    </div> 
+    <div class="middle-section">
+      <input class="search-bar" type="text" 
+      placeholder="Search">
+      <button class="search-button">
+      <img class="search-icon"
+      src="https://raw.githubusercontent.com/SuperSimpleDev/html-css-course/0211caa785f60b0e934348b9991f0ec2133a8a37/2-copy-of-code/lesson-13/icons/search.svg">
+      <div class="search-text"> Search </div>
+      </button>
+      <button class="voice-search-button">
+      <img class="voice-search-icon"
+      src="https://raw.githubusercontent.com/SuperSimpleDev/html-css-course/0211caa785f60b0e934348b9991f0ec2133a8a37/2-copy-of-code/lesson-13/icons/voice-search-icon.svg">
+      </button>
+    </div>
+    <div class="right-section">
+      <img class="upload-icon"
+      src="https://raw.githubusercontent.com/SuperSimpleDev/html-css-course/0211caa785f60b0e934348b9991f0ec2133a8a37/2-copy-of-code/lesson-13/icons/upload.svg">
+      <img class="youtube-apps"
+      src="https://raw.githubusercontent.com/SuperSimpleDev/html-css-course/0211caa785f60b0e934348b9991f0ec2133a8a37/2-copy-of-code/lesson-13/icons/youtube-apps.svg">
+      <div class="notification-div">
+      <img class="notification"
+      src="https://raw.githubusercontent.com/SuperSimpleDev/html-css-course/0211caa785f60b0e934348b9991f0ec2133a8a37/2-copy-of-code/lesson-13/icons/notifications.svg">
+      <div class="notification-number"> 3 </div>
+      </div>
+      <img class="stealth"
+      src="https://yt3.ggpht.com/wHvg4c3tOy7pD_gAu9SEkGfXWPYbD152vzWVi5cpMRvrox7UpqqXZnJmD0KEDkpDxUJfjx9msA=s88-c-k-c0x00ffffff-no-rj">
+      </div> 
+    </div>
+
+    <div class="Sidebar">
+      <div class="sidebar-link">
+        <img src="https://raw.githubusercontent.com/SuperSimpleDev/html-css-course/0211caa785f60b0e934348b9991f0ec2133a8a37/2-copy-of-code/lesson-16/icons/home.svg">
+      <div> Home </div>
+      </div>
+      <div class="sidebar-link">
+        <img src="https://raw.githubusercontent.com/SuperSimpleDev/html-css-course/0211caa785f60b0e934348b9991f0ec2133a8a37/2-copy-of-code/lesson-16/icons/explore.svg">
+      <div> Explore </div>
+      </div>
+      <div class="sidebar-link">
+        <img src="https://raw.githubusercontent.com/SuperSimpleDev/html-css-course/0211caa785f60b0e934348b9991f0ec2133a8a37/2-copy-of-code/lesson-16/icons/subscriptions.svg">
+      <div> Subscriptions</div>
+      </div>
+      <div class="sidebar-link">
+        <img src="https://raw.githubusercontent.com/SuperSimpleDev/html-css-course/0211caa785f60b0e934348b9991f0ec2133a8a37/2-copy-of-code/lesson-16/icons/originals.svg">
+      <div> Originals </div>
+      </div>
+      <div class="sidebar-link">
+        <img src="https://raw.githubusercontent.com/SuperSimpleDev/html-css-course/0211caa785f60b0e934348b9991f0ec2133a8a37/2-copy-of-code/lesson-16/icons/youtube-music.svg">
+      <div> Youtube music</div>
+      </div>
+      <div class="sidebar-link">
+        <img src="https://raw.githubusercontent.com/SuperSimpleDev/html-css-course/0211caa785f60b0e934348b9991f0ec2133a8a37/2-copy-of-code/lesson-16/icons/library.svg">
+      <div> Library </div>
+      </div>
+    </div>
+    
+    <div class="video-grid">
+      <div class="video-preview">
+      <div class="thumbnail-row">
+         <img class="thumbnail-1"
+         src="https://i.ytimg.com/vi/n2RNcPRtAiY/hq720.jpg?sqp=-…BACGAY4AUAB&rs=AOn4CLAjwFSooTrfWEB3VxSHWWFPUX4soQ">
+      <div class="video-time"> 14:20 </div>
+      </div>
+      <div class="video-info-grid">
+        <div class="channel-picture1">
+           <img class="profile-picture" src="c:\Users\DELL\OneDrive\Pictures\MG-logo.jpg">
+        </div>
+        <div class="video-info">
+           <p class="video-title">
+          Talking Tech and AI with Google CEO 
+          Sundar Pichai!
+        </p>
+        <p class="video-author">
+         Marques Brownlee
+        </p>
+        <p class="video-stats">
+          3.4M views &#183; 6 months ago
+        </p>
+       </div>
+      </div>
+      </div>
+
+    <div class="video-preview">
+      <div class="thumbnail-row">
+       <img class="thumbnail-2" src="https://i.ytimg.com/vi/mP0RAo9SKZk/hq720.jpg?sqp=-…BACGAY4AUAB&rs=AOn4CLC-DDwq3h6640OSIYxP15Q0Ohecmw">
+      <div class="video-time"> 8:20 </div>
+      </div>
+      <div class="video-info-grid">
+        <div class="channel-picture2"> 
+          <img class="profile-picture" src="c:\Users\DELL\OneDrive\Pictures\MG-logo.jpg">
+        </div>
+        <div class="video-info">
+          <p class="video-title">
+            Try Not To Laugh Challenge 9
+          </p>
+          <p class="video-author"> Mark Rober </p>
+          <p class="video-stats">
+            17M views &#183; 4 years ago
+          </p>
+        </div>      
+      </div>
+    </div>
+    
+    <div class="video-preview">
+      <div class="thumbnail-row">
+         <img class="thumbnail-1" src="	https://i.ytimg.com/vi/onXn0YUmeWQ/hq720.jpg?sqp=-…BACGAY4AUAB&rs=AOn4CLBR_i5c2hFEsWmHpSB6ZmjbtfgFlA">
+      <div class="video-time"> 5:00 </div>
+        </div>
+      <div class="video-info-grid">
+        <div class="channel-picture1">
+           <img class="profile-picture" src="c:\Users\DELL\OneDrive\Pictures\MG-logo.jpg">
+        </div>
+        <div class="video-info">
+           <p class="video-title">
+          KL Rahul vs Benjamin Stokes
+        </p>
+        <p class="video-author">
+         Cricket news
+        </p>
+        <p class="video-stats">
+          5M views &#183; 8 months ago
+        </p>
+       </div>
+      </div>
+      </div>
+
+    <div class="video-preview">
+      <div class="thumbnail-row">
+       <img class="thumbnail-2" src="	https://i.ytimg.com/vi/6nkD17sBBns/hq720.jpg?sqp=-…BACGAY4AUAB&rs=AOn4CLAmS-i-B7dINjvwihx08oNsdqyhZg">
+      <div class="video-time"> 11:40 </div>
+      </div>
+      <div class="video-info-grid">
+        <div class="channel-picture2">
+          <img class="profile-picture" src="c:\Users\DELL\OneDrive\Pictures\MG-logo.jpg">
+        </div>
+        <div class="video-info">
+          <p class="video-title">
+            Become mentally strong like Levi
+          </p>
+          <p class="video-author"> 
+            Almost Everything 
+          </p>
+          <p class="video-stats">
+            10M view &#183; 2 days ago
+          </p>
+        </div>      
+      </div>
+    </div> 
+
+    <div class="video-preview">
+      <div class="thumbnail-row">
+         <img class="thumbnail-1" src="	https://i.ytimg.com/vi/uuYi4REKKzg/hq720.jpg?sqp=-…BACGAY4AUAB&rs=AOn4CLDAA0SiPEMzxXFbYzKn-cNbo1THKg">
+      <div class="video-time"> 10:30 </div>
+        </div>
+      <div class="video-info-grid">
+        <div class="channel-picture1">
+           <img class="profile-picture" src="c:\Users\DELL\OneDrive\Pictures\MG-logo.jpg">
+        </div>
+        <div class="video-info">
+        <p class="video-title">
+          Royal Champion charge with electro boots
+        </p>
+        <p class="video-author">
+         Judo Sloth
+        </p>
+        <p class="video-stats">
+          4M views &#183; 4 months ago
+        </p>
+       </div>
+      </div>
+      </div>
+
+    <div class="video-preview">
+      <div class="thumbnail-row">
+       <img class="thumbnail-2" src="https://i.ytimg.com/vi/UJrX0p76aNU/hq720.jpg?sqp=-…BACGAY4AUAB&rs=AOn4CLD7CZ3LJ7oR7c4d9XvyJQX_mXm9ww">
+      <div class="video-time"> 2:50 </div>
+      </div>
+      <div class="video-info-grid">
+        <div class="channel-picture2"> 
+          <img class="profile-picture" src="c:\Users\DELL\OneDrive\Pictures\MG-logo.jpg">
+        </div>
+        <div class="video-info">
+          <p class="video-title">
+            Wealth vs Rich mindset
+          </p>   
+          <p class="video-author"> 
+            A2D Channel 
+          </p>
+          <p class="video-stats">
+            12M views &#183; 6 months ago
+          </p>
+        </div>      
+      </div>
+    </div> 
+    </div>
+  </body>
+</html>
