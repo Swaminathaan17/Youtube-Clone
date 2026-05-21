@@ -1,11 +1,9 @@
-/* Clears default browser padding so styles align perfectly */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Gives space at top for header and left for sidebar */
 body {
   font-family: "Roboto", "Arial", sans-serif;
   background-color: #f9f9f9;
@@ -15,9 +13,6 @@ body {
   overflow-y: scroll;
 }
 
-/* --- TOP NAVBAR STYLING --- */
-
-/* Keeps header at top when you scroll down page */
 .header {
   display: flex;
   flex-direction: row;
@@ -34,13 +29,11 @@ body {
   border-bottom: 1px solid #e5e5e5;
 }
 
-/* Vertical center alignment for inner navbar layout blocks */
 .left-section, .right-section {
   display: flex;
   align-items: center;
 }
 
-/* Round circle background hover container for system menu links */
 .hamburger-container, .icon-container {
   display: flex;
   align-items: center;
@@ -66,7 +59,6 @@ body {
   cursor: pointer;
 }
 
-/* Allows center input area to stretch dynamically across layout empty space */
 .middle-section {
   flex: 1;
   max-width: 640px;
