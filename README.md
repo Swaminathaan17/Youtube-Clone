@@ -20,8 +20,8 @@ The project code is cleanly divided into two separate source files to keep your 
 
 ## 🛠️ Built With
 
-- **🌐 HTML5**: Used to create the main skeleton boxes, layout panels, text blocks, and images.
-- **🎨 CSS3 Grid & Flexbox**: Used to handle complex side-by-side structures and multi-device fluid responsiveness.
+- **🌐 HTML**: Used to create the main skeleton boxes, layout panels, text blocks, and images.
+- **🎨 CSS Grid & Flexbox**: Used to handle complex side-by-side structures and multi-device fluid responsiveness.
 - **🔤 Google Fonts (Roboto)**: Integrated to match the precise typography engine used on the official desktop app.
 
 ## 🚀 How to Run This Project Locally
